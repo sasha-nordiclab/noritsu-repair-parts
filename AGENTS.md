@@ -57,6 +57,27 @@ FreeCAD 26.3 pocket API: SideType 'Two sides', Type / Type2, TaperAngle2 (negati
 - Hub stub now Ø11.3 (was 9.4): confirm it fits its mating part.
 - Free-spinning or fixed on the shaft? p_bore 6.5 assumes free running on Ø6.
 
+## Rubber sleeve (TPU), 2026-10-14
+
+Two Bodies, same params (`t_sl` 1.2 base, `h_tx` 1.0 knurl, `kn_n` 30, `preload` 0.02,
+`sl_clear` 0.1, `sl_end_gap` 0.2, `sl_bevel` 40; derived `sl_w_in` 54.0, `sl_len` 85.28,
+`kn_s` 2.843, `kn_pp` 2.010, groove `gr_b` 2.0 / `gr_t` 1.4 / `gr_h` 0.7).
+- `SleeveFlat` — print part. Flat TPU sheet, inner face on the bed, placed beside the roller
+  (Placement x = d_fl + 10). SheetProfile/SheetPad (40° bevelled ends) → RibGroove pattern
+  (8 full + half grooves at both ends, so the seam lands on a rib) → KnurlA/KnurlB: 90° V-grooves
+  at ±45° (sketches rotated by AttachmentOffset), linear patterns `kn_cnt` 83 each. Verified: one
+  valid solid, V 6714.2; knurl area fractions 0.81/0.25/0.01 at 10/50/90 % height (exact square
+  pyramids); cross-sections at both seam ends identical.
+- `SleeveFitted` — visual/fit model on `RollerPrint`, WITHOUT texture (outer = base Ø28.9).
+  Verified: no overlap with the core, 0.10 mm clearance on rib flanks, 0.15 mm to both flange
+  cones, all 8 ribs inside grooves. V 5215.1.
+- Texture on the fitted sleeve is skipped on purpose: a PolarPattern of 2 × 30 crossing
+  SubtractiveHelix grooves hung FreeCAD's GUI thread > 16 min (RPC timeout 120 s, not
+  cancellable; FreeCAD had to be killed). If it is needed later: compute one 12° sector with its
+  two grooves and repeat it with App::Link (no boolean), never a PartDesign pattern of helices.
+- Open: rubber over the rib grooves is only 0.5 mm (t_sl 1.2 − gr_h 0.7); t_sl 1.4 would give 0.7.
+  Knurl tips reach Ø30.9 (user accepted texture past the Ø30 flanges).
+
 ## Resume
 
 fdmkit MCP `run(expr)`; `tree(); chk(); P()` to orient (tree lists the active Body).

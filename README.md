@@ -6,7 +6,7 @@ C-41 film processor. Designed for FDM on a Bambu Lab A1 (0.4 mm nozzle, 0.6 mm l
 
 | File | Part |
 | --- | --- |
-| `NoritsuV50_Roller.fcstd` | Rack transport roller: design reference (`Roller`), print-optimised PETG core (`RollerPrint`) and TPU rubber sleeve |
+| `NoritsuV50_Roller.fcstd` | Rack transport roller: design reference (`Roller`), print-optimised PETG core (`RollerPrint`), TPU sleeve as a flat printable sheet (`SleeveFlat`) and as fitted on the core (`SleeveFitted`) |
 | `Heater.FCStd` | Heater part |
 | `LockRing.FCStd` | Lock ring |
 | `rack_leader_pusher.FCStd` | Rack leader pusher |
