@@ -90,4 +90,5 @@ The same knurled TPU sleeve, made for the original roller geometry (`Roller`): f
 
 - All sizes are in the `params` spreadsheet. The print-specific values start with `p_`; the sleeve values start with `sl_`, `kn_` and `fit_`.
 - `Roller` is the original design, `RollerPrint` the print-optimised core. `SleeveFlat` is the printable sheet; `SleeveFitted` and the `SleeveTexture` group are the fitted reference. `SleeveFlatOrig`, `SleeveFittedOrig` and `SleeveOrigTexture` are the same set for the original roller (params `o_…`).
+- A ready-to-paste shop description is in [`docs/ko-fi-description.md`](docs/ko-fi-description.md).
 - The knurl links are placed by a script, not by expressions. After changing `kn_n`, `kn_s`, `p_fl` or `L_roll`, regenerate them as described in [`AGENTS.md`](../AGENTS.md).
