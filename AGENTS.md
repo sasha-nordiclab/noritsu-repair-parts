@@ -91,6 +91,21 @@ Two Bodies, same params (`t_sl` 1.2 base, `h_tx` 1.0 knurl, `kn_n` 30, `preload`
 - Open: rubber over the rib grooves is only 0.5 mm (t_sl 1.2 − gr_h 0.7); t_sl 1.4 would give 0.7.
   Knurl tips reach Ø30.9 (user accepted texture past the Ø30 flanges).
 
+## Sleeve for the original roller (2026-10-14)
+
+Same sleeve concept on `Roller` (flat Ø30 × 0.5 flanges, 4 rectangular ribs 1 × 0.5 from r 13.05 to 13.75).
+Params: `o_w_in` 58.6, `o_gr_w` 1.2, `o_gr_h` 0.6, `o_rows` 21, `o_top` 2.146.
+- `SleeveFlatOrig` (Placement x = 2·(d_fl + 10) + 25): OrigSheetProfile/Pad (square ends) →
+  OrigRibGroove pattern (PolarPattern.Occurrences + 1, seam on a rib) → OrigKnurlA/B (same as SleeveFlat).
+  Verified: one solid, V 7491.9; knurl fractions 0.81/0.249/0.01; seam sections identical.
+  Orca *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: 1 h 21 min, 9.1 g.
+- `SleeveFittedOrig`: inner Ø26.5, outer fit_rb 14.25, z t_fl … L_roll − t_fl, grooves = exact rib
+  rectangle, polar = PolarPattern.Occurrences. Verified: overlap 0.0000, void 0.0000, 4 ribs in grooves.
+- Texture `SleeveOrigTexture`: `OrigKnurlTextureMain` = KnurlCell × (rows 0…o_rows−2) × kn_n = 600 links
+  (from z = t_fl), `OrigKnurlTextureTop` = `KnurlTopOrig` (tile trimmed at local o_top) × 30. Links
+  coloured by OverrideMaterial + ShapeAppearance. Verified: no overlap with roller or sleeve, z 0.5–59.5,
+  V 2880.3.
+
 ## Resume
 
 Rebuild texture links: for each (link, rows) in (Low, [0]), (Mid, 1…kn_rows−2), (High, [kn_rows−1]):

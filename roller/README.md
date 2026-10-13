@@ -21,6 +21,9 @@ Replacement film transport roller for the racks of the Noritsu QSF-V50 film proc
 | [`step/Noritsu_V50_Roller_Assembly.step`](step/Noritsu_V50_Roller_Assembly.step) | Reference: core with the fitted, textured sleeve |
 | [`step/Noritsu_V50_Roller_Sleeve_TPU_Fitted.step`](step/Noritsu_V50_Roller_Sleeve_TPU_Fitted.step) | Reference: the sleeve as it sits on the core |
 | [`step/Noritsu_V50_Roller_Design_Reference.step`](step/Noritsu_V50_Roller_Design_Reference.step) | Reference: the original roller geometry before print optimisation (1 mm mid-length partition, Ø6 bore) |
+| [`step/Noritsu_V50_Original_Sleeve_TPU_Flat.step`](step/Noritsu_V50_Original_Sleeve_TPU_Flat.step) | Print: TPU sleeve for the original roller, flat sheet |
+| [`step/Noritsu_V50_Original_Assembly.step`](step/Noritsu_V50_Original_Assembly.step) | Reference: original roller with its fitted, textured sleeve |
+| [`step/Noritsu_V50_Original_Sleeve_TPU_Fitted.step`](step/Noritsu_V50_Original_Sleeve_TPU_Fitted.step) | Reference: that sleeve as it sits on the original roller |
 | [`cad/NoritsuV50_Roller.FCStd`](cad/NoritsuV50_Roller.FCStd) | Parametric FreeCAD model with all of the above |
 
 ## Main dimensions
@@ -65,8 +68,26 @@ Replacement film transport roller for the racks of the Noritsu QSF-V50 film proc
 
 The fitted sleeve (`SleeveFitted`) is a reference model with an exact, zero-clearance fit on the core. Its knurl is built from one computed tile, repeated 630 times as linked copies, so the reference STEP files contain 631 solids. Use the flat sheet for printing.
 
+## Sleeve for the original roller (TPU)
+
+The same knurled TPU sleeve, made for the original roller geometry (`Roller`): flat Ø30 × 0.5 mm flanges without cones, and four rectangular ribs of 1 × 0.5 mm.
+
+<p align="center">
+  <img src="docs/img/original_assembly.png" width="380" alt="Original roller with its knurled TPU sleeve">
+  <img src="docs/img/original_sleeve_fitted_tpu_inside.png" width="380" alt="Sleeve for the original roller seen along the axis: four rib grooves">
+</p>
+<p align="center">
+  <img src="docs/img/original_sleeve_flat_tpu.png" width="380" alt="Flat TPU sheet for the original roller">
+  <img src="docs/img/original_sleeve_flat_tpu_bottom.png" width="380" alt="Underside of that sheet with four rib grooves">
+</p>
+
+- **Print flat:** the sheet is 58.6 mm wide (59 mm between the flanges, minus 0.2 mm at each end) and 85.28 mm long, with square ends because the flanges are flat. Base 1.2 mm, knurl 1 mm.
+- **Rib grooves:** four rectangular grooves 1.2 × 0.6 mm (0.1 mm clearance on each side and on top), with a half groove at each end so the seam lands on a rib. 0.6 mm of rubber remains over each groove.
+- **Slicing (measured):** *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **1 h 21 min, 9.1 g**.
+- **Fitted reference (`SleeveFittedOrig`):** exact zero-clearance fit on `Roller`, checked: no overlap and no void between roller and sleeve; the knurl reuses the same tile as above plus one top tile trimmed at the flange, 630 linked copies.
+
 ## Model notes
 
 - All sizes are in the `params` spreadsheet. The print-specific values start with `p_`; the sleeve values start with `sl_`, `kn_` and `fit_`.
-- `Roller` is the original design, `RollerPrint` the print-optimised core. `SleeveFlat` is the printable sheet; `SleeveFitted` and the `SleeveTexture` group are the fitted reference.
+- `Roller` is the original design, `RollerPrint` the print-optimised core. `SleeveFlat` is the printable sheet; `SleeveFitted` and the `SleeveTexture` group are the fitted reference. `SleeveFlatOrig`, `SleeveFittedOrig` and `SleeveOrigTexture` are the same set for the original roller (params `o_…`).
 - The knurl links are placed by a script, not by expressions. After changing `kn_n`, `kn_s`, `p_fl` or `L_roll`, regenerate them as described in [`AGENTS.md`](../AGENTS.md).
