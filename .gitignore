@@ -9,3 +9,7 @@
 # OS
 .DS_Store
 __pycache__/
+# Other Noritsu parts kept local until they are documented
+/Heater.FCStd
+/LockRing.FCStd
+/rack_leader_pusher.FCStd
