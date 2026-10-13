@@ -1,0 +1,11 @@
+# FreeCAD backups and temporary files
+*.FCBak
+*.fcbak
+*.FCStd1
+*.fcstd1
+# Slicer and export scratch
+*.gcode
+*.3mf.tmp
+# OS
+.DS_Store
+__pycache__/
