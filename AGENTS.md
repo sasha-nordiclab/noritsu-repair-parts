@@ -68,18 +68,31 @@ Two Bodies, same params (`t_sl` 1.2 base, `h_tx` 1.0 knurl, `kn_n` 30, `preload`
   at ±45° (sketches rotated by AttachmentOffset), linear patterns `kn_cnt` 83 each. Verified: one
   valid solid, V 6714.2; knurl area fractions 0.81/0.25/0.01 at 10/50/90 % height (exact square
   pyramids); cross-sections at both seam ends identical.
-- `SleeveFitted` — fit model on `RollerPrint`, WITHOUT texture (outer = base Ø28.9). Exact,
-  zero-tolerance fit (user request): inner = drum Ø26.5, grooves = exact rib trapezoid (rib params),
-  ends lie on the flange cones (`fit_z_in` 2.8 at the drum, `fit_z_out` 1.291 at Ø28.9).
-  Verified: overlap 0.0000 mm³, void between core and sleeve 0.0000 mm³ (ring r 12.9–14.45).
-  V 5457.3. The print tolerances `sl_clear` / `sl_end_gap` apply only to `SleeveFlat`.
-- Texture on the fitted sleeve is skipped on purpose: a PolarPattern of 2 × 30 crossing
-  SubtractiveHelix grooves hung FreeCAD's GUI thread > 16 min (RPC timeout 120 s, not
-  cancellable; FreeCAD had to be killed). If it is needed later: compute one 12° sector with its
-  two grooves and repeat it with App::Link (no boolean), never a PartDesign pattern of helices.
+- `SleeveFitted` — fit model on `RollerPrint`: rubber base only, outer Ø28.5 (`fit_rb` =
+  sl_rb − kn_skin). Exact zero-tolerance fit: inner = drum Ø26.5, grooves = exact rib trapezoid,
+  ends lie on the flange cones (`fit_z_in` 2.8, `fit_z_out` 1.543). Verified: overlap and void
+  between core and sleeve 0.0000 mm³ (checked before the skin change; skin only moved the outer).
+- Fitted texture (group `SleeveTexture`), visual model: the knurl is invariant under a 12°
+  rotation (`kn_a` = 360/kn_n) and a `kn_s` 2.843 axial shift, so only one tile is computed:
+  `KnurlCell` = 12° × kn_s ring piece r 14.25–15.45 (0.2 skin `kn_skin` under the pyramids keeps it
+  one solid) cut by 2 × 7 short SubtractiveHelix pieces (polar 12° steps). `KnurlLow` / `KnurlHigh`
+  are the same tile trimmed to the flange cone + flange plane (`kn_top` = 1.946 local height of the
+  last row). Copies are App::Link arrays with PlacementList (no booleans): KnurlTextureLow 30,
+  KnurlTextureMid 570 (rows 1…kn_rows−2), KnurlTextureHigh 30. Each tile builds in 10–15 s.
+  Verified: tiles do not overlap core or sleeve and touch the sleeve; seam sampling covers each
+  point exactly once; texture V 2818.1 mm³ (tile 4.626, low 3.710, high 2.332).
+  The PlacementList is not expression-driven: after changing kn_n, kn_s, p_fl or L_roll, rebuild
+  the three links (script in the handoff below).
+- Reliability rule learned: never pattern long helices around a full ring in PartDesign (60
+  crossing helices hung FreeCAD > 16 min). Trial heavy steps in a headless `freecadcmd` copy with a
+  subprocess timeout (stdin=DEVNULL and os._exit(0), or freecadcmd waits at its console) before
+  running them in the GUI.
 - Open: rubber over the rib grooves is only 0.5 mm (t_sl 1.2 − gr_h 0.7); t_sl 1.4 would give 0.7.
   Knurl tips reach Ø30.9 (user accepted texture past the Ø30 flanges).
 
 ## Resume
+
+Rebuild texture links: for each (link, rows) in (Low, [0]), (Mid, 1…kn_rows−2), (High, [kn_rows−1]):
+PlacementList = [Placement((0, 0, p_fl + k·kn_s), Rotation(Z, m·kn_a)) for k in rows for m in range(kn_n)].
 
 fdmkit MCP `run(expr)`; `tree(); chk(); P()` to orient (tree lists the active Body).
