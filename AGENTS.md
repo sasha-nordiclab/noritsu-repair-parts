@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Rack transport roller for the Noritsu QSF-V50 film processor. Document: `NoritsuV50_Roller.fcstd`.
+Rack transport roller for the Noritsu QSF-V50 film processor. Document: `roller/cad/NoritsuV50_Roller.FCStd` (STEP in `roller/step/`, renders in `roller/docs/img/`).
 Two Bodies share one `params` sheet:
 - `Roller` — the design as intended (nominal geometry), hidden.
 - `RollerPrint` — print-optimised copy, visible. Printed bottom end down (z = 0 face on the bed,
