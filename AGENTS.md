@@ -68,9 +68,11 @@ Two Bodies, same params (`t_sl` 1.2 base, `h_tx` 1.0 knurl, `kn_n` 30, `preload`
   at ±45° (sketches rotated by AttachmentOffset), linear patterns `kn_cnt` 83 each. Verified: one
   valid solid, V 6714.2; knurl area fractions 0.81/0.25/0.01 at 10/50/90 % height (exact square
   pyramids); cross-sections at both seam ends identical.
-- `SleeveFitted` — visual/fit model on `RollerPrint`, WITHOUT texture (outer = base Ø28.9).
-  Verified: no overlap with the core, 0.10 mm clearance on rib flanks, 0.15 mm to both flange
-  cones, all 8 ribs inside grooves. V 5215.1.
+- `SleeveFitted` — fit model on `RollerPrint`, WITHOUT texture (outer = base Ø28.9). Exact,
+  zero-tolerance fit (user request): inner = drum Ø26.5, grooves = exact rib trapezoid (rib params),
+  ends lie on the flange cones (`fit_z_in` 2.8 at the drum, `fit_z_out` 1.291 at Ø28.9).
+  Verified: overlap 0.0000 mm³, void between core and sleeve 0.0000 mm³ (ring r 12.9–14.45).
+  V 5457.3. The print tolerances `sl_clear` / `sl_end_gap` apply only to `SleeveFlat`.
 - Texture on the fitted sleeve is skipped on purpose: a PolarPattern of 2 × 30 crossing
   SubtractiveHelix grooves hung FreeCAD's GUI thread > 16 min (RPC timeout 120 s, not
   cancellable; FreeCAD had to be killed). If it is needed later: compute one 12° sector with its
