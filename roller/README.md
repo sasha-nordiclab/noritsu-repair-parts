@@ -20,7 +20,7 @@ Replacement film transport roller for the racks of the Noritsu QSF-V50 film proc
 | [`step/Noritsu_V50_Roller_Sleeve_TPU_Flat.step`](step/Noritsu_V50_Roller_Sleeve_TPU_Flat.step) | Print: TPU sleeve as a flat sheet |
 | [`step/Noritsu_V50_Roller_Assembly.step`](step/Noritsu_V50_Roller_Assembly.step) | Reference: core with the fitted, textured sleeve |
 | [`step/Noritsu_V50_Roller_Sleeve_TPU_Fitted.step`](step/Noritsu_V50_Roller_Sleeve_TPU_Fitted.step) | Reference: the sleeve as it sits on the core |
-| [`step/Noritsu_V50_Roller_Design_Reference.step`](step/Noritsu_V50_Roller_Design_Reference.step) | Reference: the original roller geometry before print optimisation |
+| [`step/Noritsu_V50_Roller_Design_Reference.step`](step/Noritsu_V50_Roller_Design_Reference.step) | Reference: the original roller geometry before print optimisation (1 mm mid-length partition, Ø6 bore) |
 | [`cad/NoritsuV50_Roller.FCStd`](cad/NoritsuV50_Roller.FCStd) | Parametric FreeCAD model with all of the above |
 
 ## Main dimensions

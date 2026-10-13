@@ -22,8 +22,8 @@ Names avoid unit tokens (`H`, `L` are rejected as aliases).
 
 ## Trees
 
-Roller: ProfileSketch → RollerRevolve → CavitySketch (XY) → CavityPocket (through-all up)
-→ CavityPattern (mirror X, Y) → RibSketch → RibPad (L_roll) → RibPattern (polar 4).
+Roller: ProfileSketch → RollerRevolve → CavityLowSketch (XY) / CavityLowPocket (up, (L_roll − web)/2)
+→ CavityHighSketch (XY + L_roll) / CavityHighPocket (down, same length) → CavityPattern (mirror X, Y) → RibSketch → RibPad (L_roll) → RibPattern (polar 4).
 RollerPrint: PrintProfile (XZ, 14-point poly, symmetric flanges) → PrintRevolve
 → PrintCavityLowSketch / PrintCavityLow (two sides: through-all down + 3.4 tapered roof up)
 → PrintCavityHighSketch / PrintCavityHigh (mirror image by params) → PrintCavityPattern (polar 4)
@@ -34,8 +34,9 @@ FreeCAD 26.3 pocket API: SideType 'Two sides', Type / Type2, TaperAngle2 (negati
 
 ## Decisions (2026-10-13)
 
-- Original cleanup: removed generated-face external refs, the unintended 1 mm web, DatumPlane +
-  mid mirror, hidden Body001.
+- Original cleanup: removed generated-face external refs, DatumPlane + mid mirror, hidden Body001.
+  The 1 mm mid web (partition, z 29.5–30.5, param `web`) was first removed by mistake and restored
+  on 2026-10-14 at the user's request: it is part of the original design.
 - Print copy rev 2 (user): both flanges symmetric (cone under each), mid web restored but printable
   (tapered roofs ≤ 40°, residual flat roof 4.75 mm² per cavity), all walls multiples of 0.6, all
   feature Z levels on the 0.2 grid, 8 trapezoid grip ribs for a rubber (TPU) sleeve to go on next.
@@ -45,7 +46,7 @@ FreeCAD 26.3 pocket API: SideType 'Two sides', Type / Type2, TaperAngle2 (negati
 
 ## Verified
 
-- Roller: valid single solid, V 14719.1 mm³, bbox 30 × 30 × 70.5.
+- Roller: valid single solid, V 15004.6 mm³ (incl. the 285.5 mm³ mid web), bbox 30 × 30 × 70.5.
 - RollerPrint: valid single solid, V 19501.2 mm³, bbox 30 × 30 × 70.4, worst overhang 39.7°,
   recesses verified empty z 0–5 and 55–60. Orca (A1 NordicLab, 0.20mm NordicLab 0.6 Ballance,
   AzureFilm PETG HF Black): 1 h 25 min, 24.6 g.
