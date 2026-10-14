@@ -16,9 +16,9 @@ Latest release: [Rack roller v1.0](https://github.com/sasha-nordiclab/noritsu-re
 
 | Part | What it does | Folder |
 |---|---|---|
-| **Rack roller** | Film transport roller for the QSF-V50 racks: a PETG core on a Ø6 mm shaft with a knurled TPU sleeve keyed onto eight anti-rotation ribs. | [`roller/`](roller/) |
+| **Rack roller** | Film transport roller for the QSF-V50 racks: a PETG core on a Ø6 mm shaft with a grid-textured TPU sleeve keyed onto eight anti-rotation ribs. | [`roller/`](roller/) |
 
-<p align="center"><img src="roller/docs/img/assembly.png" width="420" alt="Noritsu V50 rack roller: PETG core with knurled TPU sleeve"></p>
+<p align="center"><img src="roller/docs/img/assembly.png" width="420" alt="Noritsu V50 rack roller: PETG core with grid-textured TPU sleeve"></p>
 
 ## Common notes
 

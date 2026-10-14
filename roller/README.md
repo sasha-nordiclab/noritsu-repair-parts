@@ -3,12 +3,12 @@
 Replacement film transport roller for the racks of the Noritsu QSF-V50 film processor. It is made of two printed parts:
 
 - **Core (PETG):** the roller body on a Ø6 mm shaft, with end flanges and eight anti-rotation ribs.
-- **Sleeve (TPU):** the rubber covering with a diamond knurl, printed flat as a sheet and wrapped onto the core.
+- **Sleeve (TPU):** the rubber covering with a raised diamond grid, printed flat as a sheet and wrapped onto the core.
 
 > **Status:** designed and checked in CAD (fits, overhangs, slicing). Not yet print-tested in the machine.
 
 <p align="center">
-  <img src="docs/img/assembly.png" width="380" alt="Assembled roller: PETG core with knurled TPU sleeve">
+  <img src="docs/img/assembly.png" width="380" alt="Assembled roller: PETG core with grid-textured TPU sleeve">
   <img src="docs/img/core_petg.png" width="380" alt="PETG core with eight grip ribs">
 </p>
 
@@ -31,12 +31,12 @@ Replacement film transport roller for the racks of the Noritsu QSF-V50 film proc
 | | |
 |---|---|
 | Shaft / bore | Ø6 mm shaft, Ø6.5 mm printed bore (free running) |
-| Running diameter | Ø26.5 mm core, about Ø30.9 mm over the knurl tips |
+| Running diameter | Ø26.5 mm core, about Ø30.9 mm over the grid |
 | Flanges | Ø30 mm, 0.6 mm thick, 40° cones underneath |
 | Length | 60 mm between flange faces, 70.4 mm with the hub stub |
 | Hub | Ø11.3 mm, 2.4 mm wall; free for 5 mm at both ends (end recesses) |
 | Grip ribs | 8 × trapezoid, 1.8 mm base, 1.2 mm top, 0.6 mm high |
-| Sleeve | 1.2 mm base + 1 mm diamond knurl, 90° pyramids at 2 mm pitch |
+| Sleeve | 1.2 mm base + 1 mm raised diamond grid: ribs 1.2 mm wide (2 lines of 0.6 mm) at ±45°, 3 mm pitch, 20 cells around |
 
 ## Core (PETG)
 
@@ -52,28 +52,28 @@ Replacement film transport roller for the racks of the Noritsu QSF-V50 film proc
 ## Sleeve (TPU)
 
 <p align="center">
-  <img src="docs/img/sleeve_flat_tpu.png" width="380" alt="Flat TPU sheet with diamond knurl">
+  <img src="docs/img/sleeve_flat_tpu.png" width="380" alt="Flat TPU sheet with raised diamond grid">
   <img src="docs/img/sleeve_flat_tpu_bottom.png" width="380" alt="Underside of the TPU sheet with eight rib grooves">
 </p>
 
-- **Print flat:** inner face on the bed, knurl up. The sheet is 54.0 mm wide at the inner face and 85.28 mm long: the circumference at the middle of the base, minus 2 % so the sheet sits under slight tension.
+- **Print flat:** inner face on the bed, grid up. The grid ribs have vertical walls and no tips, so every layer is a continuous path: it prints cleanly with a 0.6 mm nozzle and avoids the stringing TPU gets from many small islands. The sheet is 54.0 mm wide at the inner face and 85.28 mm long: the circumference at the middle of the base, minus 2 % so the sheet sits under slight tension.
 - **Rib grooves:** eight grooves on the underside, with a half groove at each end so the seam lands on a rib. They have 0.1 mm clearance per side; the bevelled sheet ends leave 0.2 mm to each flange cone.
-- **Slicing (measured):** *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **1 h 21 min, 8.2 g**.
+- **Slicing (measured):** *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **1 h 13 min, 10.2 g** with a 0.6 mm nozzle (Bambu Lab A1 0.6 nozzle), 1 h 25 min, 10.3 g with a 0.4 mm nozzle.
 - **Assembly:** wrap the sheet onto the core with the grooves over the ribs and the seam on a rib. The flange cones hold both edges.
 
 <p align="center">
-  <img src="docs/img/sleeve_fitted_tpu.png" width="380" alt="The sleeve as fitted on the core, with knurl">
+  <img src="docs/img/sleeve_fitted_tpu.png" width="380" alt="The sleeve as fitted on the core, with the grid">
   <img src="docs/img/sleeve_fitted_tpu_inside.png" width="380" alt="Fitted sleeve seen along the axis: eight rib grooves">
 </p>
 
-The fitted sleeve (`SleeveFitted`) is a reference model with an exact, zero-clearance fit on the core. Its knurl is built from one computed tile, repeated 630 times as linked copies, so the reference STEP files contain 631 solids. Use the flat sheet for printing.
+The fitted sleeve (`SleeveFitted`) is a reference model with an exact, zero-clearance fit on the core. Its grid is built from one computed tile (an 18° piece with short helical ribs), repeated 280 times as linked copies, so the reference STEP files contain 281 solids. Use the flat sheet for printing.
 
 ## Sleeve for the original roller (TPU)
 
-The same knurled TPU sleeve, made for the original roller geometry (`Roller`): flat Ø30 × 0.5 mm flanges without cones, and four rectangular ribs of 1 × 0.5 mm.
+The same grid-textured TPU sleeve, made for the original roller geometry (`Roller`): flat Ø30 × 0.5 mm flanges without cones, and four rectangular ribs of 1 × 0.5 mm.
 
 <p align="center">
-  <img src="docs/img/original_assembly.png" width="380" alt="Original roller with its knurled TPU sleeve">
+  <img src="docs/img/original_assembly.png" width="380" alt="Original roller with its grid-textured TPU sleeve">
   <img src="docs/img/original_sleeve_fitted_tpu_inside.png" width="380" alt="Sleeve for the original roller seen along the axis: four rib grooves">
 </p>
 <p align="center">
@@ -81,14 +81,14 @@ The same knurled TPU sleeve, made for the original roller geometry (`Roller`): f
   <img src="docs/img/original_sleeve_flat_tpu_bottom.png" width="380" alt="Underside of that sheet with four rib grooves">
 </p>
 
-- **Print flat:** the sheet is 58.6 mm wide (59 mm between the flanges, minus 0.2 mm at each end) and 85.28 mm long, with square ends because the flanges are flat. Base 1.2 mm, knurl 1 mm.
+- **Print flat:** the sheet is 58.6 mm wide (59 mm between the flanges, minus 0.2 mm at each end) and 85.28 mm long, with square ends because the flanges are flat. Base 1.2 mm, grid 1 mm.
 - **Rib grooves:** four rectangular grooves 1.2 × 0.6 mm (0.1 mm clearance on each side and on top), with a half groove at each end so the seam lands on a rib. 0.6 mm of rubber remains over each groove.
-- **Slicing (measured):** *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **1 h 21 min, 9.1 g**.
-- **Fitted reference (`SleeveFittedOrig`):** exact zero-clearance fit on `Roller`, checked: no overlap and no void between roller and sleeve; the knurl reuses the same tile as above plus one top tile trimmed at the flange, 630 linked copies.
+- **Slicing (measured):** *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **1 h 16 min, 11.2 g** with a 0.6 mm nozzle, 1 h 21 min, 11.3 g with a 0.4 mm nozzle.
+- **Fitted reference (`SleeveFittedOrig`):** exact zero-clearance fit on `Roller`, checked: no overlap and no void between roller and sleeve; the grid reuses the same tile as above plus one top tile trimmed at the flange, 280 linked copies.
 
 ## Model notes
 
 - All sizes are in the `params` spreadsheet. The print-specific values start with `p_`; the sleeve values start with `sl_`, `kn_` and `fit_`.
 - `Roller` is the original design, `RollerPrint` the print-optimised core. `SleeveFlat` is the printable sheet; `SleeveFitted` and the `SleeveTexture` group are the fitted reference. `SleeveFlatOrig`, `SleeveFittedOrig` and `SleeveOrigTexture` are the same set for the original roller (params `o_…`).
 - A ready-to-paste shop description is in [`docs/ko-fi-description.md`](docs/ko-fi-description.md).
-- The knurl links are placed by a script, not by expressions. After changing `kn_n`, `kn_s`, `p_fl` or `L_roll`, regenerate them as described in [`AGENTS.md`](../AGENTS.md).
+- The grid links are placed by a script, not by expressions. After changing `kn_n`, `kn_s`, `p_fl` or `L_roll`, regenerate them as described in [`AGENTS.md`](../AGENTS.md).

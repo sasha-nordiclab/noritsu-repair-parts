@@ -106,9 +106,28 @@ Params: `o_w_in` 58.6, `o_gr_w` 1.2, `o_gr_h` 0.6, `o_rows` 21, `o_top` 2.146.
   coloured by OverrideMaterial + ShapeAppearance. Verified: no overlap with roller or sleeve, z 0.5–59.5,
   V 2880.3.
 
+## Texture rev 2: diamond grid (2026-10-14)
+
+Pyramid knurl replaced by a raised diamond grid for a 0.6 mm nozzle: `kn_n` 20 (kn_s 4.264, kn_pp 3.015,
+kn_a 18°), `grid_w` 1.2 (2 × 0.6 lines), `h_tx` 1.0, `grid_embed` 0.2, `grid_in` 0.5, `grid_x` trim reach.
+- Flat sheets: base pad only t_sl thick → GridA ridges (+45°, rotated XZ sketch, pad sym, LinearPattern over
+  lattice k = gA_k0…gA_k1 that strictly intersects the sheet) → TrimA side/end pockets → GridB (−45°) →
+  TrimB → rib grooves last. Trimming between the two directions keeps the crossing booleans inside the
+  sheet (a full-size base slab with crossings outside hung and crashed FreeCAD). Each step < 60 s.
+  SleeveFlat V 8194.4, SleeveFlatOrig V 9024.9, one solid each.
+- Fitted tiles GridCell/GridLow/GridHigh/GridTopOrig: full thin ring (z −kn_s…2kn_s) → 2 × 7 AdditiveHelix
+  ridges → groove operation='common' to the kn_a × kn_s wedge (→ clip). ~7 s each. Links:
+  GridTexture{Low,Mid,High} 20 + 240 + 20, OrigGridTexture{Main,Top} 260 + 20. Verified: no overlap with
+  roller or sleeve, tiles touch the sleeve, rotated/shifted copies do not overlap, ridge fill 0.638 = expected.
+- Orca with system *Bambu Lab A1 0.6 nozzle* + *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU:
+  SleeveFlat 1 h 13 min 10.2 g, SleeveFlatOrig 1 h 16 min 11.2 g (0.4 nozzle: 1 h 25 / 1 h 21).
+- Render note: the FreeCAD window is portrait (1022 × 1348); after fitAll scale the ortho camera height by
+  w/h before saveImage(1600, 1200), or 4:3 images come out small. Hide App::Origin children after
+  activating bodies.
+
 ## Resume
 
-Rebuild texture links: for each (link, rows) in (Low, [0]), (Mid, 1…kn_rows−2), (High, [kn_rows−1]):
+Rebuild texture links (now GridTexture*/OrigGridTexture*, z0 = p_fl or t_fl): for each (link, rows) in (Low, [0]), (Mid, 1…kn_rows−2), (High, [kn_rows−1]):
 PlacementList = [Placement((0, 0, p_fl + k·kn_s), Rotation(Z, m·kn_a)) for k in rows for m in range(kn_n)].
 
 fdmkit MCP `run(expr)`; `tree(); chk(); P()` to orient (tree lists the active Body).
