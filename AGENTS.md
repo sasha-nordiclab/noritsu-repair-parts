@@ -51,14 +51,21 @@ FreeCAD 26.3 pocket API: SideType 'Two sides', Type / Type2, TaperAngle2 (negati
   recesses verified empty z 0–5 and 55–60. Orca (A1 NordicLab, 0.20mm NordicLab 0.6 Ballance,
   AzureFilm PETG HF Black): 1 h 25 min, 24.6 g.
 
+## Status (2026-10-14): finished, release roller-v1.1
+
+Core, both sleeves (flat print sheets + fitted references), STEP files, renders, README and Ko-fi text
+are complete and published (github.com/sasha-nordiclab/noritsu-repair-parts). Not yet print-tested.
+
 ## Next / open
 
-- Rubber wheel/sleeve over the drum between the flanges: radial room above d_roll = 1.75 mm,
-  ribs take 0.6 of it. Flange rim 1.75 is not a 0.6 multiple (d_fl 30 kept as machine size).
+- Print test: core in PETG, sheet in TPU with a 0.6 mm nozzle; check sheet tension and seam on the rib.
 - Hub stub now Ø11.3 (was 9.4): confirm it fits its mating part.
 - Free-spinning or fixed on the shaft? p_bore 6.5 assumes free running on Ø6.
 
 ## Rubber sleeve (TPU), 2026-10-14
+
+> Texture superseded: the pyramid knurl (`Knurl*` tiles, `kn_n` 30) below was replaced by the diamond
+> grid — see "Texture rev 2". Fits, grooves and sheet sizes below are still current.
 
 Two Bodies, same params (`t_sl` 1.2 base, `h_tx` 1.0 knurl, `kn_n` 30, `preload` 0.02,
 `sl_clear` 0.1, `sl_end_gap` 0.2, `sl_bevel` 40; derived `sl_w_in` 54.0, `sl_len` 85.28,
@@ -92,6 +99,8 @@ Two Bodies, same params (`t_sl` 1.2 base, `h_tx` 1.0 knurl, `kn_n` 30, `preload`
   Knurl tips reach Ø30.9 (user accepted texture past the Ø30 flanges).
 
 ## Sleeve for the original roller (2026-10-14)
+
+> Texture superseded by the grid (`OrigGrid*` links, `o_rows` 14, `o_top` 3.567); everything else current.
 
 Same sleeve concept on `Roller` (flat Ø30 × 0.5 flanges, 4 rectangular ribs 1 × 0.5 from r 13.05 to 13.75).
 Params: `o_w_in` 58.6, `o_gr_w` 1.2, `o_gr_h` 0.6, `o_rows` 21, `o_top` 2.146.
