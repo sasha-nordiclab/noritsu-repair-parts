@@ -51,7 +51,7 @@ FreeCAD 26.3 pocket API: SideType 'Two sides', Type / Type2, TaperAngle2 (negati
   recesses verified empty z 0–5 and 55–60. Orca (A1 NordicLab, 0.20mm NordicLab 0.6 Ballance,
   AzureFilm PETG HF Black): 1 h 25 min, 24.6 g.
 
-## Status (2026-10-15): finished, release roller-v1.3 (sheet length fixed, smooth variant added)
+## Status (2026-10-15): finished, release roller-v1.4 (length fixed, smooth and dovetail variants)
 
 Core, both sleeves (flat print sheets + fitted references), STEP files, renders, README and Ko-fi text
 are complete and published (github.com/sasha-nordiclab/noritsu-repair-parts). Not yet print-tested.
@@ -158,6 +158,21 @@ User asked for a version without the grid on top. Params `t_smooth` 1.6 (8 layer
   58.6 × 88.28 × 1.6. 1 h 1 min, 10.1 g.
 - `SleeveFittedSmooth` / `SleeveFittedSmoothOrig`: exact fits on RollerPrint / Roller, overlap 0, void 0.
 - Colours (cyan / peach) must be set after the body's features exist, or they reset to grey.
+
+## Dovetail version (2026-10-15)
+
+User request: a separate print core with a dovetail slot; the flat sleeve's ends, rolled up, form a dovetail key
+and the tube slides on from one side. Params `dt_neck` 2.4, `dt_base` 3.6, `dt_depth` 1.2, `dt_clear` 0.15.
+- `RollerPrintDovetail`: Body with BaseFeature = RollerPrint → DovetailSlotSketch (XY + fit_z_in) → DovetailSlot
+  pocket up through all at +Y (over a spoke; removes the rib there). Open through the top flange, blind at
+  z 2.8 (axial stop). V 19243.2, one solid. 1 h 24 min, 24.3 g PETG.
+- `SleeveFlatSmoothDovetail` (print orientation: outer face on the bed): 40° bevelled profile → pad sm_len →
+  DtKeys (two half-dovetail keys, pad sym sl_w_in) → 7 rib grooves (seam at the slot, no rib there).
+  V 7515.6, 56.7 × 88.28 × 2.65. Keys lean 29.7° from vertical. 58 min, 9.7 g TPU, 0.6 nozzle.
+  The grid sleeve cannot carry keys: it must print inner face down, where the keys would hang in the air.
+- `SleeveFittedSmoothDovetail`: smooth fitted + exact key in the slot; overlap 0, void 0.
+- Open: the tube must stretch over the Ø30 top flange when slid on; if that is too hard, reduce or remove
+  the top flange of this core.
 
 ## Resume
 

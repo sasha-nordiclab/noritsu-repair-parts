@@ -27,6 +27,9 @@ Replacement film transport roller for the racks of the Noritsu QSF-V50 film proc
 | [`step/Noritsu_V50_Roller_Sleeve_TPU_Smooth_Flat.step`](step/Noritsu_V50_Roller_Sleeve_TPU_Smooth_Flat.step) | Print: smooth TPU sleeve (no grid), flat sheet |
 | [`step/Noritsu_V50_Original_Sleeve_TPU_Smooth_Flat.step`](step/Noritsu_V50_Original_Sleeve_TPU_Smooth_Flat.step) | Print: smooth TPU sleeve for the original roller, flat sheet |
 | [`step/Noritsu_V50_Roller_Smooth_Assembly.step`](step/Noritsu_V50_Roller_Smooth_Assembly.step) · [`step/Noritsu_V50_Original_Smooth_Assembly.step`](step/Noritsu_V50_Original_Smooth_Assembly.step) | Reference: both rollers with the smooth sleeve fitted |
+| [`step/Noritsu_V50_Roller_Dovetail_Core_PETG.step`](step/Noritsu_V50_Roller_Dovetail_Core_PETG.step) | Print: PETG core with dovetail slot |
+| [`step/Noritsu_V50_Roller_Dovetail_Sleeve_TPU_Flat.step`](step/Noritsu_V50_Roller_Dovetail_Sleeve_TPU_Flat.step) | Print: smooth TPU sleeve with dovetail ends, flat sheet |
+| [`step/Noritsu_V50_Roller_Dovetail_Assembly.step`](step/Noritsu_V50_Roller_Dovetail_Assembly.step) | Reference: dovetail core with the sleeve fitted |
 | [`cad/NoritsuV50_Roller.FCStd`](cad/NoritsuV50_Roller.FCStd) | Parametric FreeCAD model with all of the above |
 
 ## Main dimensions
@@ -107,9 +110,27 @@ A variant without the grid: a plain 1.6 mm TPU sleeve (8 layers) with a smooth o
 - **Slicing (measured):** Bambu Lab A1 0.6 nozzle, *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **59 min, 9.2 g** (print-optimised core) and **1 h 1 min, 10.1 g** (original core).
 - **Fitted references (`SleeveFittedSmooth`, `SleeveFittedSmoothOrig`):** exact zero-clearance fit, checked: no overlap and no void between roller and sleeve.
 
+## Dovetail version (PETG core + smooth TPU sleeve)
+
+A separate core in which one of the eight ribs is replaced by an axial dovetail slot, and a smooth sleeve whose two ends carry half-dovetail keys. Rolled up, the two ends meet and together form a full dovetail; slid onto the core from the top, the key runs along the slot and holds the seam closed, so the ends cannot pull out.
+
+<p align="center">
+  <img src="docs/img/dovetail_assembly.png" width="380" alt="Dovetail core with the smooth sleeve fitted">
+  <img src="docs/img/dovetail_assembly_top.png" width="380" alt="Top view: the joined sleeve keys sit in the dovetail slot">
+</p>
+<p align="center">
+  <img src="docs/img/dovetail_core_petg.png" width="380" alt="PETG core with the dovetail slot open through the top flange">
+  <img src="docs/img/dovetail_sleeve_flat_tpu.png" width="380" alt="Flat sleeve printed key side up: half-dovetail keys at both ends, seven rib grooves">
+</p>
+
+- **Slot (core):** 2.4 mm neck at the drum surface, 3.6 mm at the bottom, 1.2 mm deep, over a spoke. It is open through the top flange and closed at the bottom cone (z 2.8 mm), which works as the axial stop. Prints standing like the other core, no supports. *0.20mm NordicLab 0.6 Ballance*, PETG: **1 h 24 min, 24.3 g**.
+- **Sleeve:** smooth 1.6 mm sheet, 88.28 mm long, seven rib grooves, and a half-dovetail key along each end (0.15 mm sliding clearance per side). Print it **outer face down, keys up**: the keys' slanted faces lean 30° from vertical. Bambu Lab A1 0.6 nozzle, *0.20mm NordicLab 0.6 Slow TPU*: **58 min, 9.7 g**.
+- **Assembly:** roll the sheet into a tube so the two keys meet, then push the tube onto the core from the top end with the key in the slot, until it reaches the bottom stop. The sleeve has to stretch over the Ø30 mm top flange on the way.
+- **Fitted reference (`SleeveFittedSmoothDovetail`):** exact zero-clearance fit on `RollerPrintDovetail`, checked: no overlap and no void, including the slot.
+
 ## Model notes
 
 - All sizes are in the `params` spreadsheet. The print-specific values start with `p_`; the sleeve values start with `sl_`, `kn_` and `fit_`.
-- `Roller` is the original design, `RollerPrint` the print-optimised core. `SleeveFlat` is the printable sheet; `SleeveFitted` and the `SleeveTexture` group are the fitted reference. `SleeveFlatOrig`, `SleeveFittedOrig` and `SleeveOrigTexture` are the same set for the original roller (params `o_…`). `SleeveFlatSmooth`, `SleeveFlatSmoothOrig`, `SleeveFittedSmooth` and `SleeveFittedSmoothOrig` are the smooth variant (params `t_smooth`, `sm_…`).
+- `Roller` is the original design, `RollerPrint` the print-optimised core. `SleeveFlat` is the printable sheet; `SleeveFitted` and the `SleeveTexture` group are the fitted reference. `SleeveFlatOrig`, `SleeveFittedOrig` and `SleeveOrigTexture` are the same set for the original roller (params `o_…`). `SleeveFlatSmooth`, `SleeveFlatSmoothOrig`, `SleeveFittedSmooth` and `SleeveFittedSmoothOrig` are the smooth variant (params `t_smooth`, `sm_…`). `RollerPrintDovetail` (BaseFeature = `RollerPrint` + `DovetailSlot`), `SleeveFlatSmoothDovetail` and `SleeveFittedSmoothDovetail` are the dovetail version (params `dt_…`).
 - A ready-to-paste shop description is in [`docs/ko-fi-description.md`](docs/ko-fi-description.md).
 - The grid links are placed by a script, not by expressions. After changing `kn_n`, `kn_s`, `p_fl` or `L_roll`, regenerate them as described in [`AGENTS.md`](../AGENTS.md).
