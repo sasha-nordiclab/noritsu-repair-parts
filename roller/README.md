@@ -24,6 +24,9 @@ Replacement film transport roller for the racks of the Noritsu QSF-V50 film proc
 | [`step/Noritsu_V50_Original_Sleeve_TPU_Flat.step`](step/Noritsu_V50_Original_Sleeve_TPU_Flat.step) | Print: TPU sleeve for the original roller, flat sheet |
 | [`step/Noritsu_V50_Original_Assembly.step`](step/Noritsu_V50_Original_Assembly.step) | Reference: original roller with its fitted, textured sleeve |
 | [`step/Noritsu_V50_Original_Sleeve_TPU_Fitted.step`](step/Noritsu_V50_Original_Sleeve_TPU_Fitted.step) | Reference: that sleeve as it sits on the original roller |
+| [`step/Noritsu_V50_Roller_Sleeve_TPU_Smooth_Flat.step`](step/Noritsu_V50_Roller_Sleeve_TPU_Smooth_Flat.step) | Print: smooth TPU sleeve (no grid), flat sheet |
+| [`step/Noritsu_V50_Original_Sleeve_TPU_Smooth_Flat.step`](step/Noritsu_V50_Original_Sleeve_TPU_Smooth_Flat.step) | Print: smooth TPU sleeve for the original roller, flat sheet |
+| [`step/Noritsu_V50_Roller_Smooth_Assembly.step`](step/Noritsu_V50_Roller_Smooth_Assembly.step) · [`step/Noritsu_V50_Original_Smooth_Assembly.step`](step/Noritsu_V50_Original_Smooth_Assembly.step) | Reference: both rollers with the smooth sleeve fitted |
 | [`cad/NoritsuV50_Roller.FCStd`](cad/NoritsuV50_Roller.FCStd) | Parametric FreeCAD model with all of the above |
 
 ## Main dimensions
@@ -86,9 +89,27 @@ The same grid-textured TPU sleeve, made for the original roller geometry (`Rolle
 - **Slicing (measured):** *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **1 h 19 min, 11.8 g** with a 0.6 mm nozzle, 1 h 24 min, 11.8 g with a 0.4 mm nozzle.
 - **Fitted reference (`SleeveFittedOrig`):** exact zero-clearance fit on `Roller`, checked: no overlap and no void between roller and sleeve; the grid reuses the same tile as above plus one top tile trimmed at the flange, 294 linked copies.
 
+## Smooth sleeve (TPU)
+
+A variant without the grid: a plain 1.6 mm TPU sleeve (8 layers) with a smooth outer surface, for both rollers. Its outer diameter is Ø29.7 mm, just inside the Ø30 mm flanges. The rib grooves, clearances and seam-on-a-rib layout are the same as on the grid sheets, with 0.9 mm (print-optimised core) or 1.0 mm (original core) of rubber over each groove.
+
+<p align="center">
+  <img src="docs/img/smooth_assembly.png" width="380" alt="Print-optimised core with smooth TPU sleeve">
+  <img src="docs/img/original_smooth_assembly.png" width="380" alt="Original roller with smooth TPU sleeve">
+</p>
+<p align="center">
+  <img src="docs/img/smooth_sleeve_flat_tpu.png" width="380" alt="Smooth TPU sheet">
+  <img src="docs/img/original_smooth_sleeve_flat_tpu.png" width="380" alt="Underside of the smooth sheet for the original roller with four rib grooves">
+</p>
+
+- **Length:** 88.28 mm, the circumference at the middle of the 1.6 mm sheet (r 14.05 mm), where a plain sheet neither stretches nor compresses when wrapped. No preload.
+- **Width:** 54.0 mm at the inner face with 40° bevelled ends (print-optimised core), 58.6 mm with square ends (original core).
+- **Slicing (measured):** Bambu Lab A1 0.6 nozzle, *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **59 min, 9.2 g** (print-optimised core) and **1 h 1 min, 10.1 g** (original core).
+- **Fitted references (`SleeveFittedSmooth`, `SleeveFittedSmoothOrig`):** exact zero-clearance fit, checked: no overlap and no void between roller and sleeve.
+
 ## Model notes
 
 - All sizes are in the `params` spreadsheet. The print-specific values start with `p_`; the sleeve values start with `sl_`, `kn_` and `fit_`.
-- `Roller` is the original design, `RollerPrint` the print-optimised core. `SleeveFlat` is the printable sheet; `SleeveFitted` and the `SleeveTexture` group are the fitted reference. `SleeveFlatOrig`, `SleeveFittedOrig` and `SleeveOrigTexture` are the same set for the original roller (params `o_…`).
+- `Roller` is the original design, `RollerPrint` the print-optimised core. `SleeveFlat` is the printable sheet; `SleeveFitted` and the `SleeveTexture` group are the fitted reference. `SleeveFlatOrig`, `SleeveFittedOrig` and `SleeveOrigTexture` are the same set for the original roller (params `o_…`). `SleeveFlatSmooth`, `SleeveFlatSmoothOrig`, `SleeveFittedSmooth` and `SleeveFittedSmoothOrig` are the smooth variant (params `t_smooth`, `sm_…`).
 - A ready-to-paste shop description is in [`docs/ko-fi-description.md`](docs/ko-fi-description.md).
 - The grid links are placed by a script, not by expressions. After changing `kn_n`, `kn_s`, `p_fl` or `L_roll`, regenerate them as described in [`AGENTS.md`](../AGENTS.md).

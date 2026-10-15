@@ -51,7 +51,7 @@ FreeCAD 26.3 pocket API: SideType 'Two sides', Type / Type2, TaperAngle2 (negati
   recesses verified empty z 0–5 and 55–60. Orca (A1 NordicLab, 0.20mm NordicLab 0.6 Ballance,
   AzureFilm PETG HF Black): 1 h 25 min, 24.6 g.
 
-## Status (2026-10-15): finished, release roller-v1.2 (sheet length fixed)
+## Status (2026-10-15): finished, release roller-v1.3 (sheet length fixed, smooth variant added)
 
 Core, both sleeves (flat print sheets + fitted references), STEP files, renders, README and Ko-fi text
 are complete and published (github.com/sasha-nordiclab/noritsu-repair-parts). Not yet print-tested.
@@ -146,6 +146,18 @@ print: change `kn_n` only if the gap/overlap is about one cell (4.26 mm); finer 
 GUI note: re-recomputing an existing helix tile took ~2 min, rebuilding it from scratch 7 s; after a
 param change recompute features body by body and `purgeTouched()`, never a full `d.recompute()`.
 Orca 0.6 nozzle: SleeveFlat 1 h 17 min 10.7 g, SleeveFlatOrig 1 h 19 min 11.8 g.
+
+## Smooth sleeve variant (2026-10-15)
+
+User asked for a version without the grid on top. Params `t_smooth` 1.6 (8 layers), `sm_rn` = d_roll/2 + t_smooth/2
+(14.05), `sm_len` = 2π·sm_rn = 88.28 (plain sheet: neutral layer at mid-thickness, no preload), `sm_ro` 14.85
+(Ø29.7, inside the Ø30 flanges), `sm_z_out` (cone height at sm_ro).
+- `SleeveFlatSmooth` (Placement x = d_fl + 10, y = −(sl_len + 10)): SmoothSheetProfile (40° bevel) → pad sm_len →
+  8 trapezoid rib grooves (+ half at the seam). V 7297.6, 56.7 × 88.28 × 1.6. 59 min, 9.2 g (0.6 nozzle).
+- `SleeveFlatSmoothOrig` (x = 2·(d_fl + 10) + 25, same y): square ends, 4 rectangular grooves. V 8108.2,
+  58.6 × 88.28 × 1.6. 1 h 1 min, 10.1 g.
+- `SleeveFittedSmooth` / `SleeveFittedSmoothOrig`: exact fits on RollerPrint / Roller, overlap 0, void 0.
+- Colours (cyan / peach) must be set after the body's features exist, or they reset to grey.
 
 ## Resume
 
