@@ -94,7 +94,7 @@ The same grid-textured TPU sleeve, made for the original roller geometry (`Rolle
 
 ## Smooth sleeve (TPU)
 
-A variant without the grid: a plain 1.6 mm TPU sleeve (8 layers) with a smooth outer surface, for both rollers. Its outer diameter is Ø29.7 mm, just inside the Ø30 mm flanges. The rib grooves, clearances and seam-on-a-rib layout are the same as on the grid sheets, with 0.9 mm (print-optimised core) or 1.0 mm (original core) of rubber over each groove.
+A variant without the grid: a plain 1.75 mm TPU sleeve with a smooth outer surface, for both rollers. Its thickness is (flange Ø − drum Ø)/2, so the fitted sleeve is Ø30 mm, flush with the flange rims, and the roller reads as one smooth cylinder. The rib grooves, clearances and seam-on-a-rib layout are the same as on the grid sheets, with 1.05 mm (print-optimised core) or 1.15 mm (original core) of rubber over each groove.
 
 <p align="center">
   <img src="docs/img/smooth_assembly.png" width="380" alt="Print-optimised core with smooth TPU sleeve">
@@ -105,9 +105,9 @@ A variant without the grid: a plain 1.6 mm TPU sleeve (8 layers) with a smooth o
   <img src="docs/img/original_smooth_sleeve_flat_tpu.png" width="380" alt="Underside of the smooth sheet for the original roller with four rib grooves">
 </p>
 
-- **Length:** 88.28 mm, the circumference at the middle of the 1.6 mm sheet (r 14.05 mm), where a plain sheet neither stretches nor compresses when wrapped. No preload.
+- **Length:** 88.75 mm, the circumference at the middle of the 1.75 mm sheet (r 14.125 mm), where a plain sheet neither stretches nor compresses when wrapped. No preload.
 - **Width:** 54.0 mm at the inner face with 40° bevelled ends (print-optimised core), 58.6 mm with square ends (original core).
-- **Slicing (measured):** Bambu Lab A1 0.6 nozzle, *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **59 min, 9.2 g** (print-optimised core) and **1 h 1 min, 10.1 g** (original core).
+- **Slicing (measured):** Bambu Lab A1 0.6 nozzle, *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **1 h 3 min, 10.2 g** (print-optimised core) and **1 h 6 min, 11.2 g** (original core).
 - **Fitted references (`SleeveFittedSmooth`, `SleeveFittedSmoothOrig`):** exact zero-clearance fit, checked: no overlap and no void between roller and sleeve.
 
 ## Dovetail version (PETG core + smooth TPU sleeve)
@@ -124,7 +124,7 @@ A separate core in which one of the eight ribs is replaced by an axial dovetail 
 </p>
 
 - **Slot (core):** 2.4 mm neck at the drum surface, 3.6 mm at the bottom, 1.2 mm deep, over a spoke. It is open through the top flange and closed at the bottom cone (z 2.8 mm), which works as the axial stop. Prints standing like the other core, no supports. *0.20mm NordicLab 0.6 Ballance*, PETG: **1 h 24 min, 24.3 g**.
-- **Sleeve:** smooth 1.6 mm sheet, 88.28 mm long, seven rib grooves, and a half-dovetail key along each end (0.15 mm sliding clearance per side). Print it **outer face down, keys up**: the keys' slanted faces lean 30° from vertical. Bambu Lab A1 0.6 nozzle, *0.20mm NordicLab 0.6 Slow TPU*: **58 min, 9.7 g**.
+- **Sleeve:** smooth 1.75 mm sheet (flush with the flanges), 88.75 mm long, seven rib grooves, and a half-dovetail key along each end (0.15 mm sliding clearance per side). Print it **outer face down, keys up**: the keys' slanted faces lean 30° from vertical. Bambu Lab A1 0.6 nozzle, *0.20mm NordicLab 0.6 Slow TPU*: **1 h 4 min, 10.9 g**.
 - **Assembly:** roll the sheet into a tube so the two keys meet, then push the tube onto the core from the top end with the key in the slot, until it reaches the bottom stop. The sleeve has to stretch over the Ø30 mm top flange on the way.
 - **Fitted reference (`SleeveFittedSmoothDovetail`):** exact zero-clearance fit on `RollerPrintDovetail`, checked: no overlap and no void, including the slot.
 

@@ -7,7 +7,7 @@ WHAT YOU GET
   – PETG core, print-optimised (8 anti-rotation ribs)
   – TPU sleeve for it, as a flat sheet
   – TPU sleeve for the classic core (4 ribs, flat flanges), as a flat sheet
-  – Smooth TPU sleeves (no grid, 1.6 mm, flush with the flanges) for both cores, as flat sheets
+  – Smooth TPU sleeves (no grid, 1.75 mm, flush with the flange rims at Ø30 mm) for both cores, as flat sheets
   – Dovetail version: a core with a dovetail slot and a sleeve whose ends lock together into a dovetail key, slid on from one end
 • Reference STEP files: both rollers with the sleeve fitted, the fitted sleeves on their own, and the classic core
 • The parametric FreeCAD model: every size is in one spreadsheet, so you can adapt the roller to another rack

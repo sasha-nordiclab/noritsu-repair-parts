@@ -51,7 +51,7 @@ FreeCAD 26.3 pocket API: SideType 'Two sides', Type / Type2, TaperAngle2 (negati
   recesses verified empty z 0–5 and 55–60. Orca (A1 NordicLab, 0.20mm NordicLab 0.6 Ballance,
   AzureFilm PETG HF Black): 1 h 25 min, 24.6 g.
 
-## Status (2026-10-15): finished, release roller-v1.4 (length fixed, smooth and dovetail variants)
+## Status (2026-10-15): finished, release roller-v1.5 (smooth sleeves flush with the flanges)
 
 Core, both sleeves (flat print sheets + fitted references), STEP files, renders, README and Ko-fi text
 are complete and published (github.com/sasha-nordiclab/noritsu-repair-parts). Not yet print-tested.
@@ -173,6 +173,15 @@ and the tube slides on from one side. Params `dt_neck` 2.4, `dt_base` 3.6, `dt_d
 - `SleeveFittedSmoothDovetail`: smooth fitted + exact key in the slot; overlap 0, void 0.
 - Open: the tube must stretch over the Ø30 top flange when slid on; if that is too hard, reduce or remove
   the top flange of this core.
+
+## Smooth sleeves flush with the flanges (2026-10-15)
+
+User: the smooth sleeve should reach the roller's edges. `t_smooth` = (d_fl − d_roll)/2 = 1.75 (was 1.6), so
+`sm_ro` = d_fl/2 = 15 (fitted Ø30, flush with the flange rims), `sm_len` 88.75, `sm_z_out` = p_fl (sleeve end
+meets the flange top at the rim). Applies to SleeveFlatSmooth*, SleeveFittedSmooth* and the dovetail sleeve.
+Verified: all one solid; overlap 0 and void 0 on RollerPrint, Roller and RollerPrintDovetail. Orca 0.6 nozzle:
+smooth 1 h 3 min 10.2 g, smooth orig 1 h 6 min 11.2 g, dovetail sleeve 1 h 4 min 10.9 g. 1.75 is not a multiple
+of the 0.2 layer: the slicer rounds the last layer.
 
 ## Resume
 
