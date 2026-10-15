@@ -14,7 +14,7 @@ WHAT YOU GET
 HOW IT WORKS
 • Core: Ø26.5 mm running surface, Ø30 mm flanges, 60 mm between the flanges, Ø6.5 mm bore that runs freely on the Ø6 mm shaft. Inside, four spokes and a mid-length partition keep it light and stiff; 5 mm recesses around the hub at both ends.
 • Sleeve: a 1.2 mm TPU base with a 1 mm raised diamond grid (ribs 1.2 mm wide at ±45°, 3 mm pitch). Grooves on the inside key onto the ribs of the core, so the sleeve cannot turn on it. The flanges hold it in place along the axis.
-• Printed flat: the sleeve is printed as a sheet, 2 % shorter than the circumference, so it sits under slight tension. Its seam lands exactly on a rib, and the grid continues across the seam.
+• Printed flat: the sleeve is printed as a sheet whose length matches the roller circumference at the neutral layer of the rubber, so it closes without stretching. Its seam lands exactly on a rib, and the grid continues across the seam.
 
 PRINT SETTINGS (sliced in OrcaSlicer, Bambu Lab A1)
 Core
@@ -27,7 +27,7 @@ Sleeve
 • Orientation: flat, smooth grooved side on the plate, grid up. No supports needed.
 • Made for a 0.6 mm nozzle: the grid ribs are exactly two 0.6 mm lines wide with vertical walls, so each layer is a continuous path with no tips and far fewer travel moves for TPU to string. A 0.4 mm nozzle works too.
 • Layer height 0.2 mm, line width 0.6 mm, slow TPU speeds.
-• About 1 h 15 min and 10–11 g with a 0.6 mm nozzle.
+• About 1 h 20 min and 11–12 g with a 0.6 mm nozzle.
 
 ASSEMBLY
 1. Slide the core onto the shaft.

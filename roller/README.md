@@ -36,7 +36,7 @@ Replacement film transport roller for the racks of the Noritsu QSF-V50 film proc
 | Length | 60 mm between flange faces, 70.4 mm with the hub stub |
 | Hub | Ø11.3 mm, 2.4 mm wall; free for 5 mm at both ends (end recesses) |
 | Grip ribs | 8 × trapezoid, 1.8 mm base, 1.2 mm top, 0.6 mm high |
-| Sleeve | 1.2 mm base + 1 mm raised diamond grid: ribs 1.2 mm wide (2 lines of 0.6 mm) at ±45°, 3 mm pitch, 20 cells around |
+| Sleeve | 1.2 mm base + 1 mm raised diamond grid: ribs 1.2 mm wide (2 lines of 0.6 mm) at ±45°, 3 mm pitch, 21 cells around |
 
 ## Core (PETG)
 
@@ -56,9 +56,9 @@ Replacement film transport roller for the racks of the Noritsu QSF-V50 film proc
   <img src="docs/img/sleeve_flat_tpu_bottom.png" width="380" alt="Underside of the TPU sheet with eight rib grooves">
 </p>
 
-- **Print flat:** inner face on the bed, grid up. The grid ribs have vertical walls and no tips, so every layer is a continuous path: it prints cleanly with a 0.6 mm nozzle and avoids the stringing TPU gets from many small islands. The sheet is 54.0 mm wide at the inner face and 85.28 mm long: the circumference at the middle of the base, minus 2 % so the sheet sits under slight tension.
+- **Print flat:** inner face on the bed, grid up. The grid ribs have vertical walls and no tips, so every layer is a continuous path: it prints cleanly with a 0.6 mm nozzle and avoids the stringing TPU gets from many small islands. The sheet is 54.0 mm wide at the inner face and 89.55 mm long: the circumference at the neutral layer of the base plus grid (r ≈ 14.25 mm), rounded to 21 whole grid cells so the pattern meets at the seam. (v1.1 was 85.28 mm, about 4 mm too short: it ignored the grid when bending.)
 - **Rib grooves:** eight grooves on the underside, with a half groove at each end so the seam lands on a rib. They have 0.1 mm clearance per side; the bevelled sheet ends leave 0.2 mm to each flange cone.
-- **Slicing (measured):** *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **1 h 13 min, 10.2 g** with a 0.6 mm nozzle (Bambu Lab A1 0.6 nozzle), 1 h 25 min, 10.3 g with a 0.4 mm nozzle.
+- **Slicing (measured):** *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **1 h 17 min, 10.7 g** with a 0.6 mm nozzle (Bambu Lab A1 0.6 nozzle), 1 h 28 min, 10.8 g with a 0.4 mm nozzle.
 - **Assembly:** wrap the sheet onto the core with the grooves over the ribs and the seam on a rib. The flange cones hold both edges.
 
 <p align="center">
@@ -66,7 +66,7 @@ Replacement film transport roller for the racks of the Noritsu QSF-V50 film proc
   <img src="docs/img/sleeve_fitted_tpu_inside.png" width="380" alt="Fitted sleeve seen along the axis: eight rib grooves">
 </p>
 
-The fitted sleeve (`SleeveFitted`) is a reference model with an exact, zero-clearance fit on the core. Its grid is built from one computed tile (an 18° piece with short helical ribs), repeated 280 times as linked copies, so the reference STEP files contain 281 solids. Use the flat sheet for printing.
+The fitted sleeve (`SleeveFitted`) is a reference model with an exact, zero-clearance fit on the core. Its grid is built from one computed tile (an 18° piece with short helical ribs), repeated 294 times as linked copies, so the reference STEP files contain 295 solids. Use the flat sheet for printing.
 
 ## Sleeve for the original roller (TPU)
 
@@ -81,10 +81,10 @@ The same grid-textured TPU sleeve, made for the original roller geometry (`Rolle
   <img src="docs/img/original_sleeve_flat_tpu_bottom.png" width="380" alt="Underside of that sheet with four rib grooves">
 </p>
 
-- **Print flat:** the sheet is 58.6 mm wide (59 mm between the flanges, minus 0.2 mm at each end) and 85.28 mm long, with square ends because the flanges are flat. Base 1.2 mm, grid 1 mm.
+- **Print flat:** the sheet is 58.6 mm wide (59 mm between the flanges, minus 0.2 mm at each end) and 89.55 mm long, with square ends because the flanges are flat. Base 1.2 mm, grid 1 mm.
 - **Rib grooves:** four rectangular grooves 1.2 × 0.6 mm (0.1 mm clearance on each side and on top), with a half groove at each end so the seam lands on a rib. 0.6 mm of rubber remains over each groove.
-- **Slicing (measured):** *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **1 h 16 min, 11.2 g** with a 0.6 mm nozzle, 1 h 21 min, 11.3 g with a 0.4 mm nozzle.
-- **Fitted reference (`SleeveFittedOrig`):** exact zero-clearance fit on `Roller`, checked: no overlap and no void between roller and sleeve; the grid reuses the same tile as above plus one top tile trimmed at the flange, 280 linked copies.
+- **Slicing (measured):** *0.20mm NordicLab 0.6 Slow TPU*, AzureFilm TPU: **1 h 19 min, 11.8 g** with a 0.6 mm nozzle, 1 h 24 min, 11.8 g with a 0.4 mm nozzle.
+- **Fitted reference (`SleeveFittedOrig`):** exact zero-clearance fit on `Roller`, checked: no overlap and no void between roller and sleeve; the grid reuses the same tile as above plus one top tile trimmed at the flange, 294 linked copies.
 
 ## Model notes
 
