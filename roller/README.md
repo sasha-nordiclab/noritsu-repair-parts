@@ -72,7 +72,7 @@ Replacement film transport roller for the racks of the Noritsu QSF-V50 film proc
   <img src="docs/img/sleeve_fitted_tpu_inside.png" width="380" alt="Fitted sleeve seen along the axis: eight rib grooves">
 </p>
 
-The fitted sleeve (`SleeveFitted`) is a reference model with an exact, zero-clearance fit on the core. Its grid is built from one computed tile (an 18° piece with short helical ribs), repeated 294 times as linked copies, so the reference STEP files contain 295 solids. Use the flat sheet for printing.
+The fitted sleeve (`SleeveFittedGrid`) is a reference model with an exact, zero-clearance fit on the core. Its grid is built from one computed tile (an 18° piece with short helical ribs), repeated 294 times as linked copies, so the reference STEP files contain 295 solids. Use the flat sheet for printing.
 
 ## Sleeve for the original roller (TPU)
 
@@ -130,7 +130,7 @@ A separate core in which one of the eight ribs is replaced by an axial dovetail 
 
 ## Model notes
 
-- All sizes are in the `params` spreadsheet. The print-specific values start with `p_`; the sleeve values start with `sl_`, `kn_` and `fit_`.
-- `Roller` is the original design, `RollerPrint` the print-optimised core. `SleeveFlat` is the printable sheet; `SleeveFitted` and the `SleeveTexture` group are the fitted reference. `SleeveFlatOrig`, `SleeveFittedOrig` and `SleeveOrigTexture` are the same set for the original roller (params `o_…`). `SleeveFlatSmooth`, `SleeveFlatSmoothOrig`, `SleeveFittedSmooth` and `SleeveFittedSmoothOrig` are the smooth variant (params `t_smooth`, `sm_…`). `RollerPrintDovetail` (BaseFeature = `RollerPrint` + `DovetailSlot`), `SleeveFlatSmoothDovetail` and `SleeveFittedSmoothDovetail` are the dovetail version (params `dt_…`).
+- All sizes are in the `params` spreadsheet: print-core values start with `p_`, grid sleeve with `sl_`, `kn_`, `grid_`, smooth sleeve with `t_smooth`/`sm_`, dovetail with `dt_`, original-roller variants with `o_`, fits with `fit_`.
+- The model tree is grouped into folders: **01 Cores** (`Roller` original design, `RollerPrint`, `RollerPrintDovetail`), **02 Grid sleeve** (`SleeveFlatGrid…` print sheets, `SleeveFittedGrid…` + `SleeveGridTexture…` fitted references), **03 Smooth sleeve**, **04 Dovetail sleeve** and **05 Grid tiles** (hidden sources of the linked grid copies). "Orig" marks the parts for the original `Roller`.
 - A ready-to-paste shop description is in [`docs/ko-fi-description.md`](docs/ko-fi-description.md).
 - The grid links are placed by a script, not by expressions. After changing `kn_n`, `kn_s`, `p_fl` or `L_roll`, regenerate them as described in [`AGENTS.md`](../AGENTS.md).
